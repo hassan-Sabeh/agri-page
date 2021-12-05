@@ -29,6 +29,11 @@ app.use("/api", allRoutes);
 //mointing the index routes middleware
 const index = require("./routes/index");
 app.use("/", index);
+const login = require('./routes/login');
+app.use('/', login);
+
+const signup = require('./routes/signup');
+app.use('/', signup);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
