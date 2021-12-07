@@ -5,9 +5,7 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      unique: true,
       required: true,
-      match: [/^\S+@\S+\.\S+$/, 'Email address is not valid']
     },
     userType: {
       type: String,
@@ -17,6 +15,7 @@ const userSchema = new Schema(
       type: String,
       required: true,
       unique: true,
+      match: [/^\S+@\S+\.\S+$/, 'Email address is not valid']
     },
     ownBusiness: {type: Mongoose.Schema.Types.ObjectId, ref: 'Business', default: null},
     favorites: [{type: Mongoose.Schema.Types.ObjectId, ref: 'Business'}],

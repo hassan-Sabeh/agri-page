@@ -31,15 +31,19 @@ router.post('/signup', (req, res, next) => {
         // create the session object with user_id field
         res.redirect('/profile')
     })
-    .catch(erro => {
+    .catch(error => {
         //if handlers for error messages from the database.
         if (error instanceof Mangoose.Error.ValidationError) {
-
+            res.status(500).render('signup', {errorMessage: error})
+        } else if (error.code === 11000){
+            res.status(500).render('signup', {errorMessage: 'Email already exists'})
+        } else {
+            next(error);
         }
     });
     //create the User model on the database
     //render the profile page.
-})
+});
 
 
 
