@@ -1,9 +1,13 @@
 <img src="../public/logo192.png" alt="">
 
-<div id="login">
-  <h1>Login</h1>
-  <form method="POST" action="/login">
- 
+<div id="signup">
+  <h1>Former Sign Up</h1>
+  <form method="POST" action="/signup">
+    <label>
+      Name:
+      <input type="text" name="Nname"/>
+    </label>
+
      <label>
       Email Adress:
       <input type="email" id="input-email" name="email"/>
@@ -14,15 +18,35 @@
       <input type="password" name="password" id="input-password"/>
     </label>
 
-    <input type="submit" value="Login"/>
+     <label>
+      Password confirmation:
+      <input type="password" name="password" id="input-password"/>
+    </label>
 
-   </form>
+    <label>
+      Businees Name:
+      <input type="text" name="Name"/>
+    </label>
+ 
+    <label>
+      Business Adress:
+      <input type="adress"  name="adress"/>
+    </label>
+ 
+    <label>
+      Description:
+      <textarea id="descri" name="Description"></textarea>
+    </label>
+
+    <input type="submit" value="Sign Up">
+ 
+  </form>
 </div>
 
 <section> 
            
     <footer>
-
+        
         <div class="container-footer">
 
            <div class="footer-reseau">
@@ -46,3 +70,6 @@
     </footer>
 
 </section>
+
+
+
