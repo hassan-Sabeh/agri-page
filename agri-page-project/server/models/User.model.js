@@ -5,20 +5,22 @@ const userSchema = new Schema(
   {
     username: {
       type: String,
-      unique: true
+      unique: true,
+      required: true,
+      match: [/^\S+@\S+\.\S+$/, 'Email address is not valid']
     },
-    user_type: {
+    userType: {
       type: String,
       required: true
     },
     email: {
       type: String,
       required: true,
-      unique: true
+      unique: true,
     },
-    own_business: {type: Mongoose.Schema.Types.ObjectId, ref: 'Business', default: null},
+    ownBusiness: {type: Mongoose.Schema.Types.ObjectId, ref: 'Business', default: null},
     favorites: [{type: Mongoose.Schema.Types.ObjectId, ref: 'Business'}],
-    password: String,
+    password: {type: String, required: true}
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
