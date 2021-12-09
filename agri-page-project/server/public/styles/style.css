@@ -1,3 +1,120 @@
+body{
+    background: #82AE8C;
+    
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
 img{
     max-width: 100%;
 }
+
+.logo{
+    position: absolute;
+    left: 40px;
+    top:100px;
+    width: 100px;height: 100px;
+}
+
+h2{
+    position: absolute;
+    top:10px;
+    left: 40px;
+    color: #82AE8C;
+}
+
+/*MIDLLE*/
+.midle-box{
+    position: absolute;
+    
+}
+
+#login-box{
+    background-color: black;
+    width: 50px; 
+    position: absolute;
+    border-radius: 10px;
+    left: 200px;
+    
+}
+
+#signup-box{
+    background-color: black;
+    width: 50px; 
+    left: 70px;
+    position: relative;
+    border-radius: 10px;
+}
+
+
+
+.right-box{
+    position: absolute;
+    top:30px;
+    height: 100px;
+    right: 70px;
+    background-color: #82AE8C;
+    border-radius: 10px;
+
+}
+
+.left-box{
+    position: absolute;
+    background-color: #82AE8C;
+    top: 100px;
+    height: 100px;
+    left: 70px;
+    border-radius: 10px;
+    
+}
+
+
+/*FOOTER*/
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+}
+/*
+.container-footer{
+    display: flex;
+    background: darkgreen;
+    position: relative;
+    height: 100px;
+    justify-content: space-between;
+    top:auto;
+    bottom: 0;
+    
+}
+
+.footer-reseaux{
+    width: 50px;height: 50px;
+    background-color: darkred;
+   border: 1px solid black;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+
+.footer-contacte{
+    width: 50px;height: 50px;
+    background-color: green;
+    border: 1px solid black;
+    position: absolute;
+}
+
+.footer-logo{
+    width: 50px;height: 50px;
+    background-color: yellow;
+   border: 1px solid black;
+   position: absolute;
+   right: 0;
+   bottom: 0;
+}
+
+*/
+

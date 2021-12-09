@@ -1,8 +1,22 @@
+.right-box{
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 40px;
+    font-size: 12px;
+    color: #82AE8C;
+}
 .container-footer{
     display: flex;
+
 }
 
-#login-box{
-    background-color: green;
-    width: 20%;
+#login{
+    justify-content: center;
 }
+
+
+
+
+
+
