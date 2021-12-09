@@ -1,0 +1,23 @@
+body{
+    background-color: blueviolet;
+}
+
+#rectangle{
+    width:150px;
+    height:100px;
+    background:blue;
+}
+
+#rectangle1{
+    width:150px;
+    height:100px;
+    background:blue;
+}
+
+<!--FOOTER-->
+.container-footer{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    background-color: green;
+  }
