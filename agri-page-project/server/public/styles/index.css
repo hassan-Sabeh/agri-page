@@ -1,14 +1,81 @@
-.right-box{
+#connecting-people{
     position: absolute;
-    display: flex;
-    justify-content: flex-end;
-    top: 40px;
+    top: 120px;
     font-size: 12px;
     color: #82AE8C;
+    width: 30%;
+    background-color: yellow;
 }
-.container-footer{
-    display: flex;
 
+
+#hand-earth{
+    max-width: 100%;
+}
+
+
+.logo{
+    position: absolute;
+    left: 40px;
+    top:100px;
+    width: 100px;height: 100px;
+}
+
+
+#farming-crops{
+    /* visibility: hidden; */
+    max-width: 100%;
+}
+
+#website-name{
+    position: absolute;
+    top:10px;
+    left: 40px;
+    color: #82AE8C;
+}
+
+/*MIDLLE*/
+.midle-box{
+    /* position: absolute; */
+    
+}
+
+#login-box{
+    background-color: black;
+    width: 50px; 
+    /* position: absolute; */
+    border-radius: 10px;
+    left: 200px;
+    
+}
+
+#signup-box{
+    background-color: black;
+    width: 50px; 
+    left: 70px;
+    /* position: relative; */
+    border-radius: 10px;
+}
+
+
+
+.right-box{
+    /* position: absolute; */
+    top:30px;
+    height: 100px;
+    right: 70px;
+    background-color: #82AE8C;
+    border-radius: 10px;
+
+}
+
+.left-box{
+    /* position: absolute; */
+    background-color: #82AE8C;
+    top: 100px;
+    height: 100px;
+    left: 70px;
+    border-radius: 10px;
+    
 }
 
 #login{
