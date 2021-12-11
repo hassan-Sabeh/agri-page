@@ -1,0 +1,31 @@
+#transition-page{
+    display: flex;
+    flex-direction: centre;
+    padding: 50px;
+    justify-content: space-between;
+    width: 100%;
+}
+#transition-page>h1{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.img-shopping{
+    height: 300px;
+    width: 300px;
+   
+   
+}
+.img-farmer{
+    height: 300px;
+    width: 300px;
+   
+
+}
+
+
+
+
+
+
+

@@ -1,3 +1,34 @@
+
 #signup{
     background-image: url("/images/roman-synkevych-fjj7lVpCxRE-unsplash.jpg");
+     
+}
+
+#signup> h1{
+    text-align: center;
+    font-size: 60px;
+    justify-content: center;
+    color: #064815;
+    font-family: rancho;
+}
+
+form{
+    text-align: center;
+    width: 300px;
+    height: 300px;
+    background-color:#c4c4c4;
+    padding: 30px;
+    border-radius: 30px;
+    align-items: center;
+   padding: 0 auto;
+}
+
+
+
+.email{
+    background-image: url("/images/email.png");
+}
+
+.password{
+    background-image: url("/images/password.png");
 }
