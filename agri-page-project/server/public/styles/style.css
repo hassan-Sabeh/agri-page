@@ -1,7 +1,8 @@
-body{
-    background: #82AE8C;
+/*body{
+    background: #82ae82;
     
 }
+*/
 
 *{
     margin: 0;
@@ -9,12 +10,14 @@ body{
 }
 
 /*FOOTER*/
+
 footer{
     bottom: 0;
     width: 100%;
     /* width: 100px;
     height: 100px; */
 }
+
 
 .container-footer{
     display: flex;
@@ -25,11 +28,11 @@ footer{
     justify-content: space-between;
     top:auto;
     bottom: 0;
+    flex-direction: row;
 }    
 
 .footer-reseaux{
    width: 30%;
-   border: 1px solid black;
    bottom: 0;
    left: 0;
 }
@@ -41,6 +44,8 @@ footer{
 
 .footer-contacte{
     width: 30%;
+    text-align: center;
+    bottom: 10px;
 }
 
 .footer-logo{
@@ -53,4 +58,3 @@ footer{
 .footer-logo > img{
     width: 20%;
 }
-

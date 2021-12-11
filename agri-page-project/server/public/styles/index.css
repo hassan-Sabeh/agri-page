@@ -1,11 +1,27 @@
 #connecting-people{
     position: absolute;
-    top: 120px;
+    top: 50px;
+    right: 40px;
     font-size: 12px;
-    color: #82AE8C;
     width: 30%;
-    background-color: yellow;
+    background-color: #82AE8C;
+    border-radius: 10px;
+    text-align: center;
 }
+
+#allowing>p{
+    text-align: center;
+    position: absolute;
+    top: 464px;
+    font-size: 12px;
+    background-color: #82AE8C;
+    width: 284px;
+    height: 50px;
+    left: 30px;
+    border-radius: 10px;
+}
+
+
 
 
 #hand-earth{
@@ -28,9 +44,16 @@
 
 #website-name{
     position: absolute;
-    top:10px;
+    top:200px;
     left: 40px;
     color: #82AE8C;
+
+    font-family: Rancho;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 60px;
+
 }
 
 /*MIDLLE*/
@@ -39,48 +62,28 @@
     
 }
 
-#login-box{
-    background-color: black;
-    width: 50px; 
-    /* position: absolute; */
+#login-box>p{
+    text-align: center;
+    background-color: red;
+    width: 173px; 
+    height: 71px;
     border-radius: 10px;
-    left: 200px;
+    left: 50px;
+    bottom: 800px;
     
 }
 
 #signup-box{
-    background-color: black;
-    width: 50px; 
-    left: 70px;
-    /* position: relative; */
+    background-color:red;
+    width: 173px; 
+    height: 71px;
+    right: 50px;
+    bottom: 800px;
     border-radius: 10px;
 }
 
 
 
-.right-box{
-    /* position: absolute; */
-    top:30px;
-    height: 100px;
-    right: 70px;
-    background-color: #82AE8C;
-    border-radius: 10px;
-
-}
-
-.left-box{
-    /* position: absolute; */
-    background-color: #82AE8C;
-    top: 100px;
-    height: 100px;
-    left: 70px;
-    border-radius: 10px;
-    
-}
-
-#login{
-    justify-content: center;
-}
 
 
 
