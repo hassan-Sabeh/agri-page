@@ -4,11 +4,12 @@ const User = require("./User.model.js");
 
 const businessSchema = new mongoose.Schema(
     {
-        owner_id:{type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null},
+        ownerId:{type: mongoose.Schema.Types.ObjectId, ref: 'User', default: null},
         businessName: {
             type: String,
             minlength: 1,
             maxlength: 20,
+            unique: true,
         },
         businessAddress: {
             type: String,
