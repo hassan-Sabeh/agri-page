@@ -59,30 +59,75 @@
 /*MIDLLE*/
 .midle-box{
     /* position: absolute; */
+    /*display: flex;*/
     
 }
 
-#login-box>p{
-    text-align: center;
-    background-color: red;
-    width: 173px; 
+#login-box{
+    position: absolute;
+    width: 173px;
     height: 71px;
+    left: 19px;
+    top: 743px;
+
+    background: rgba(130, 174, 140, 0.72);
     border-radius: 10px;
-    left: 50px;
-    bottom: 800px;
-    
+}
+
+
+#login-box>p{
+    position: absolute;
+    width: 99px;
+    height: 58px;
+    left: 28px;
+    top: 752px;
+    background: #82AE8C;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+
+    color: #000000;
+}
+
+.img-login{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 151px;
+    top: 763px;
 }
 
 #signup-box{
-    background-color:red;
+    position: absolute;
+    background: #82AE8C;
     width: 173px; 
     height: 71px;
-    right: 50px;
-    bottom: 800px;
+    left: 358px;
+    top: 743px;
     border-radius: 10px;
 }
 
+#signup-box>p{
+    position: absolute;
+    width: 88px;
+    height: 68px;
+    left: 366px;
+    top: 754px;
+    font-family: roboto;
+    font-size: 12px;
+    background: #82AE8C;
+   
+}
 
+.img-signup{
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    left: 459px;
+    top: 763px;
+}
 
 
 

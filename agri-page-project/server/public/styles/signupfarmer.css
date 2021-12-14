@@ -1,6 +1,7 @@
 
 #signup{
     background-image: url("/images/roman-synkevych-fjj7lVpCxRE-unsplash.jpg");
+    display: flex;
      
 }
 
@@ -17,11 +18,14 @@ form{
     width: 300px;
     height: 300px;
     background-color:#c4c4c4;
-    padding: 30px;
+    padding: 20px;
     border-radius: 30px;
     align-items: center;
    padding: 0 auto;
+   
 }
+
+
 
 
 

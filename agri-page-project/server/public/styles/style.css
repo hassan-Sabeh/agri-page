@@ -12,8 +12,9 @@
 /*FOOTER*/
 
 footer{
-    bottom: 0;
-    width: 100%;
+   bottom: 0;
+   width: 100%;
+   
     /* width: 100px;
     height: 100px; */
 }
@@ -22,30 +23,37 @@ footer{
 .container-footer{
     display: flex;
     /* background: #82AE8C; */
-    background: green;
+    background: #82AE8C;
     position: relative;
     height: 150px;
     justify-content: space-between;
-    top:auto;
+    top: auto;
     bottom: 0;
     flex-direction: row;
+    
 }    
 
 .footer-reseaux{
    width: 30%;
    bottom: 0;
-   left: 0;
+   
+   
+   
 }
+
+
 
 
 .footer-reseaux > img{
     width: 10%;
+   
 }
 
 .footer-contacte{
     width: 30%;
     text-align: center;
     bottom: 10px;
+    top: 10px;
 }
 
 .footer-logo{

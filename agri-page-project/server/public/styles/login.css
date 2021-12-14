@@ -1,37 +1,52 @@
 #form-login{
     background-image: url("/images/roman-synkevych-fjj7lVpCxRE-unsplash.jpg");
-   
+    position: relative;
+    max-width: 100%;
+    width: 572px;
+    height: 340px;
+     
 }
 
 
 .form{
-    display: flex;
-    flex-direction: column;
-    height: 70%;
-    width: 70px;
-    padding-bottom: 10px;
-    margin: 0 auto;  
+   position: absolute;
+   width: 151px;
+   height: 166px;
+   left: 199px;
+   top: 49px;
 }
 
-#form-login> h1{
+
+ h1{
     margin: 0 auto;
     left: 70%;
     top: 30px;
     font-family: rancho;
     color: #064815;
+    
 }
 
 .input{
-    padding: 20px;
-    border: 5px solid black;
+    padding: 15px;
+    border: 2px solid #064815;
     border-radius: 2px;
+}
+.login{
+    position: absolute;
+    width: 75.5px;
+    height: 11.2px;
+    left: 190px;
+    top: 189px;
+    font-size: 9px;
+    color: #064815;
+    font-family: roboto;
 }
 
 .email{
     background-image: url("/images/email.png");
     background-repeat: no-repeat;
-    background-position: 10px 1Opx;
-    background-size: 12px;
+    background-position: 5px 15px;
+    background-size: 18px;
     padding-left: 30px;
     border-radius: 10px;
 }
@@ -39,8 +54,8 @@
 .password{
     background-image: url("/images/password.png");
     background-repeat: no-repeat;
-    background-position: 10px 10px;
-    background-size: 12px;
+    background-position: 5px 15px;
+    background-size: 18px;
     padding-left: 30px;
     border-radius: 10px;
 }
