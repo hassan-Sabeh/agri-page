@@ -63,18 +63,19 @@
     
 }
 
-#login-box{
+#login-box>p{
     position: absolute;
     width: 173px;
     height: 71px;
     left: 19px;
     top: 743px;
-
+    font-family: Roboto;
+    font-size: 14px;
     background: rgba(130, 174, 140, 0.72);
     border-radius: 10px;
 }
 
-
+/*
 #login-box>p{
     position: absolute;
     width: 99px;
@@ -90,7 +91,7 @@
 
     color: #000000;
 }
-
+*/
 .img-login{
     position: absolute;
     width: 32px;
@@ -99,7 +100,7 @@
     top: 763px;
 }
 
-#signup-box{
+#signup-box>p{
     position: absolute;
     background: #82AE8C;
     width: 173px; 
@@ -108,7 +109,7 @@
     top: 743px;
     border-radius: 10px;
 }
-
+/*
 #signup-box>p{
     position: absolute;
     width: 88px;
@@ -120,7 +121,7 @@
     background: #82AE8C;
    
 }
-
+*/
 .img-signup{
     position: absolute;
     width: 32px;
