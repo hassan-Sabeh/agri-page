@@ -13,45 +13,6 @@ router.get('/signup', (req, res, next) => {
     // res.send('<h2>SignUp Page</h2>');
 })
 
-// router.post('/signup', (req, res, next) => {
-//     //validate the user is unique
-//     //validate all required fields
-//     data = req.body;
-//     // console.log(req.body);
-//     if (!username || !userType || !email || !password) {
-//         res.render('auth/signup', {errorMessage: "mandatory fields should not be empty"});
-//         return;
-//     }
-//     // hashing the password with bcryptjs
-//     const hashPassword = bcryptjs.hashSync(password, salt);
-//     User.create(
-//         {
-//         username: data.username,
-//         userType: data.userType, 
-//         email: data.email, 
-//         ownBusiness: data.ownBusiness, 
-//         favorites: data.favorites, 
-//         hashPassword: data.hashPassword
-//         }
-//     )
-//     .then(function(userFromDb) {
-//         // create the session object with user_id field
-//         if (data.username === "client")res.redirect('/profile');
-//     })
-//     .catch(error => {
-//         //if handlers for error messages from the database.
-//         if (error instanceof Mongoose.Error.ValidationError) {
-//             //TODO: add error handler to render user friendly error to signup page
-//             res.status(500).render('auth/signup', {errorMessage: error})
-//         } else if (error.code === 11000){
-//             res.status(500).render('auth/signup', {errorMessage: 'Email already exists'})
-//         } else {
-//             console.log("######## the error is here ##########");
-//             next(error);
-//         }
-//     }); 
-
-
 //TODO, refactor code, duplication for User.create...
 router.post('/signup', (req, res, next) => {
     data = req.body;
@@ -103,7 +64,7 @@ router.post('/signup', (req, res, next) => {
         const session = await dbConn.startSession();
         try {
             session.startTransaction();
-
+            //!! returns an array
             const user = await User.create(
                 [{
                 username: data.username,
@@ -113,13 +74,13 @@ router.post('/signup', (req, res, next) => {
                 favorites: data.favorites, 
                 hashPassword: hashPassword
                 }], {session});
-
+            //!! returns an array
             const business = await Business.create(
                 [{
-                ownerId: null, // get it from the session id (cookies)
+                ownerId: null, 
                 businessName: data.businessName,
                 businessAddress: data.businessAddress,
-                businessCoordinates: null, //get it from address decoding later.
+                businessCoordinates: null, //To be populated when the address is given or on the frontend with Axios
                 businessDescription: data.businessDescription,
                 region: data.region
             }], {session})
@@ -128,6 +89,15 @@ router.post('/signup', (req, res, next) => {
             //create the user session
             //update the IDs of the business and the users accordingly on the db
             // req.session.userId = user._id;
+            console.log("##########", user[0]._id)
+            Business.findOneAndUpdate({businessName: business[0].businessName}, {ownerId: user[0]._id}, {new: true})
+                .then(function(businessFromDb){console.log(businessFromDb)})
+                .catch(error => console.log(error))
+            
+            User.findOneAndUpdate({email: user[0].email}, {ownBusiness: business[0]._id}, {new: true})
+                .then(function(userFromDb) {console.log(userFromDb)})
+                .catch(error => console.log(error))
+
             res.redirect('/profile');
         } catch (error) {
             if (error instanceof Mongoose.Error.ValidationError) {
@@ -136,7 +106,7 @@ router.post('/signup', (req, res, next) => {
             } else if (error.code === 11000){
                 res.status(500).render('auth/signup', {errorMessage: error})
             } else {
-                console.log("######## the error is here ##########");
+                console.log("######## the error is here ##########", error);
                 next(error);
             }
             await session.abortTransaction();

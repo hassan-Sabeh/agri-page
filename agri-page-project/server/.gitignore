@@ -6,3 +6,7 @@ npm-debug.log
 
 # Environment Variables should NEVER be published
 .env
+
+data
+
+mongodb-linux-x86_64-4.0.12.tgz

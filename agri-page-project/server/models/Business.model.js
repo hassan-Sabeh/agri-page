@@ -13,16 +13,18 @@ const businessSchema = new mongoose.Schema(
         },
         businessAddress: {
             type: String,
+            default: null,
         },
         businessCoordinates:{
             long: String,
-            lat: String,
+            lat:  String,
         },
         businessDescription: {
             type:String,
             maxlength: 200,
+            default: null,
         },
-        region: String
+        region: String,
       }
 );
 
