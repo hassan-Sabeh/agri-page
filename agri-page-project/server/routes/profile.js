@@ -36,6 +36,6 @@ router.get('/profile', (req, res, next) => {
 router.get('/profilebusiness', (req, res, next) => {
     res.render("profilebusiness", {businessInfo: businessInfor});
 });
-
+//{businessName: "hello"}
 
 module.exports = router;
