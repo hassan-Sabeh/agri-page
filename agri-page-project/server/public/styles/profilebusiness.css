@@ -3,10 +3,29 @@ html, body{
     height: 100%;
 }
 
-aside{
+
+.nav-bar{
+    height:10%;
+    font-family: Roboto;
+    background-color: #80A779;
+    color: #064815;
+    width: 100%;
+    left: 68px;
+    top: 12px;
+    text-align: center;
+}
+
+#main-page{
+    height:90%;
+}
+
+
+.left-box{
     background-color: #80A779;
     padding: 69px;
     text-align: center;
+    height: 100%;
+    width: 5%;
 }
 
 .container{
@@ -14,23 +33,6 @@ aside{
     background-size: 100%;
     height: 100%;
 
-}
-
-.nav-bar{
-    font-family: Roboto;
-    background-color: #80A779;
-    color: #064815;
-    width: 100%;
-    height: 27px;
-    left: 68px;
-    top: 12px;
-}
-
-.left-box{
-    width: 65px;
-    height: 100%px;
-    left: 0px;
-    top: 0px;
 }
 
 h2{
@@ -66,6 +68,7 @@ img{
 
 .container-box{
     display: flex;
+    height: 100%;
 }
 
 .box{
@@ -73,42 +76,3 @@ img{
     height: 120;
     top: 90px;
 }
-/*
-.nav-bar{
-    position: absolute;
-    font-family: Roboto;
-    color: #064815;
-    height: 299px;
-    height: 27px;
-    left: 68px;
-    top: 12px;
-}
-
-img{
-    position: absolute;
-    width: 41px;
-    height: 44px;
-    left: 12px;
-    top: 34px;
-}
-
-.left-box>p{
-    position: absolute;
-    width: 47px;
-    height: 22px;
-    left: 15px;
-    top: 12px;
-}
-
-.left-box{
-    position: absolute;
-    width: 65px;
-    height: 287px;
-    left: 0px;
-    top: 0px;
-}
-
-.container-box{
-
-}
-*/
