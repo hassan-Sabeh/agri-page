@@ -59,6 +59,7 @@ router.post('/signup', (req, res, next) => {
     */
     // hashing the password with bcrypt
     const hashPassword = bcryptjs.hashSync(data.password, salt);
+    
     async function registerFarmer(){
         console.log(data.username);
         const session = await dbConn.startSession();
