@@ -1,6 +1,8 @@
 const router = require('express').Router()
 
 router.get('/login', (req, res, next) => {
+    req.session.userId = "sdskdsdsdsd"
+    console.log("SESSION ====>", req.session.userId);
     res.render('auth/login');
 })
 

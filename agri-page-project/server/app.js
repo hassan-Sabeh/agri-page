@@ -16,6 +16,9 @@ const app = express();
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
+//using session middleware for cookies
+require("./config/session.config")(app)
+
 //to be moved to the configuration file?
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'views'));
@@ -34,6 +37,9 @@ app.use('/', login);
 
 const signup = require('./routes/signup');
 app.use('/', signup);
+
+const profile = require("./routes/profile");
+app.use('/', profile);
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
