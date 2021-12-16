@@ -1,3 +1,4 @@
+/*
 #client-signup{
     background-image: url("/images/roman-synkevych-fjj7lVpCxRE-unsplash.jpg");
    
@@ -5,7 +6,14 @@
    max-height: 100%;
     
 }
+*/
 
+html, body{
+    margin: 0;
+    height: 100%;
+}
+
+/*
 h1{
     position: absolute;
     width: 169px;
@@ -14,10 +22,34 @@ h1{
     top: 9px;
     font-family: rancho;
     color: #064815;
-    
+}
+*/
 
+.client{
+    background-image: url("/images/roman-synkevych-fjj7lVpCxRE-unsplash.jpg");
+   background-size: 100%;
+   height: 100%;
 }
 
+.client>h1{
+    text-align: center;
+    font-size: 60px;
+    justify-content: center;
+    color: #064815;
+    font-family: rancho;
+}
+
+.client>input{
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    height: 60px;
+    left: 199px;
+    top: 49px;
+    border: 1px solid grey;
+}
+
+/*
 .client{
    
     width: 151px;
@@ -25,5 +57,5 @@ h1{
     left: 199px;
     top: 49px;
 }
-
+*/
 
