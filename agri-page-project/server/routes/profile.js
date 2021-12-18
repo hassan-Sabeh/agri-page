@@ -14,7 +14,7 @@ router.get("/profile", (req, res, next) => {
 router.get('/profile/business/:businessId', (req, res, next) => {
     //check if user already logged in
     if (!req.session.userId) {
-        res.render('auth/login', {errorMessafe: "you have to be logged in to view this page"});
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
         console.log("user not logged in");
         // res.send("you have to be logged in to view this")
         return;
@@ -24,7 +24,7 @@ router.get('/profile/business/:businessId', (req, res, next) => {
     Business.findById(businessId)
         .then(function(businessFromDb) {
             if (!businessFromDb) {
-                res.render('profile/profile', {errorMessafe: "business does not exist"});
+                res.render('profile/profile', {errorMessage: "business does not exist"});
                 // res.send("business does not exist")
                 return;
             }
@@ -47,7 +47,7 @@ router.get('/profile/business/:businessId', (req, res, next) => {
 //view favorite businesses
 router.get('/profile/favorites', (req, res, next) => {
     if (!req.session.userId) {
-        res.render('auth/login', {errorMessafe: "you have to be logged in to view this page"});
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
         console.log("user not logged in");
         return;
     }
@@ -86,6 +86,23 @@ router.get('/profile/favorites', (req, res, next) => {
             res.render('profile/profile', {errorMessage: "an error occured check logs"});
         })
 });
+
+//adding a business to favorites
+router.post('/profile/favorites', (req, res, next) => {
+    if (!req.session.userId) {
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+        console.log("user not logged in");
+        return;
+    }
+    const favoriteBusinessId = req.body.businessId;
+    const userId = req.session.userId;
+    User.findByIdAndUpdate(userId, {$push: {favorites: favoriteBusinessId}})
+        .then((userFromDb) => {
+            console.log('update favorites list ===>', userFromDb);
+            res.send('business was added to favorites');
+        })
+        .catch(error => console.log('######### error ########## ', error))
+ });
 
 
 module.exports = router;
