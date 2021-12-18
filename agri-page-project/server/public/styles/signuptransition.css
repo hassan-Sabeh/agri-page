@@ -9,75 +9,65 @@ h1{
     height: 33px;
     left: 333px;
     top: 21px;
-
     font-family: Rancho;
-    font-style: normal;
-    font-weight: normal;
     font-size: 36px;
-    line-height: 45px;
     color: #064815
 }
 
 #transition-page{
     background-size: 100%;
-    height: 100%;
+    height: 100vh;
     background: #ffffff;
+}
+
+.elements{
+    display: flex;
+    padding: 1em;
 }
 
 
 .shopping{
-    position: absolute;
+   
     width: 151px;
     height: 166px;
     left: 317px;
     top: 70px;
-    border: 1px solid rgba(6, 72, 21, 0.21);
+    border: 1px solid black;
     border-radius: 5px;
 }
 
 .img-shopping{
-    position: absolute;
     width: 124px;
     height: 127px;
     left: 327px;
     top: 75px;
-    background: url("/images/shopping.png");
+    
 }
 
-
-
 .farmer{
-    position: absolute;
+    
     width: 151px;
     height: 166;
     left: 54px;
     top: 70px;
-    border: 1px solid rgba(6, 72, 21, 0.21);
+    border: 1px solid black;
     border-radius: 5px;
+    
 }
 
 .img-farmer{
-    position: absolute;
     width: 113px;
     height: 127px;
     left: 76px;
     top: 75px;
-
 }
 
 .shopping>h3{
-    position: absolute;
+    /*position: absolute;*/
     width: 56px;
     height: 19px;
-    left: 372px;
-    top: 205px;
-
     font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
-    line-height: 16px;
-
     color: #064815;
 }
 
@@ -85,15 +75,8 @@ h1{
     position: absolute;
     width: 56px;
     height: 19px;
-    left: 102px;
-    top: 205px;
-
     font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
-    line-height: 16px;
-
     color: #064815;
 }
 

@@ -7,6 +7,7 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /*FOOTER*/
@@ -28,19 +29,13 @@ footer{
     justify-content: space-between;
     top: auto;
     bottom: 0;
-    flex-direction: row;
-    
+    flex-direction: row;  
 }    
 
 .footer-reseaux{
    width: 30%;
-   bottom: 0;
-   
-   
-   
+   bottom: 0;  
 }
-
-
 
 
 .footer-reseaux > img{
