@@ -22,7 +22,7 @@ const userSchema = new mongoose.Schema(
       match: [/^\S+@\S+\.\S+$/, 'Email address is not valid']
     },
     ownBusiness: {type: mongoose.Schema.Types.ObjectId, ref: 'Business', default: null},
-    favorites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Business'}],
+    favorites: [{type: mongoose.Schema.Types.ObjectId, ref: 'Business', default: null}],
     hashPassword: {type: String, required: true}
   },
   {

@@ -28,12 +28,12 @@ router.post('/signup', (req, res, next) => {
             userType: data.userType, 
             email: data.email, 
             ownBusiness: data.ownBusiness, 
-            favorites: data.favorites, 
             hashPassword: hashPassword
             })
         .then(function(userFromDb) {
             // create the session object with user_id field
             req.session.userId = userFromDb._id;
+            req.session.userType = userFromDb.userType;
             res.redirect('/profile');
             return;
         })
@@ -89,6 +89,7 @@ router.post('/signup', (req, res, next) => {
             //create the user session
             //update the IDs of the business and the users accordingly on the db
             req.session.userId = user[0]._id;
+            req.session.userType = user[0].userType;
             console.log("##########", user[0]._id)
             Business.findOneAndUpdate({businessName: business[0].businessName}, {ownerId: user[0]._id}, {new: true})
                 .then(function(businessFromDb){console.log(businessFromDb)})
