@@ -10,8 +10,7 @@ const Business = require('../models/Business.model');
 
 router.get('/signup', (req, res, next) => {
     res.render('auth/signup', {data: "SignUp Page"});
-    // res.send('<h2>SignUp Page</h2>');
-})
+});
 
 //TODO, refactor code, duplication for User.create...
 router.post('/signup', (req, res, next) => {
