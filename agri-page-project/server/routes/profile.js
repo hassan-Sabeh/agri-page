@@ -99,12 +99,22 @@ router.post('/profile/favorites', (req, res, next) => {
     }
     const favoriteBusinessId = req.body.businessId;
     const userId = req.session.userId;
-    User.findByIdAndUpdate(userId, {$push: {favorites: favoriteBusinessId}})
+    if (req.query.operation === "add"){
+        User.findByIdAndUpdate(userId, {$push: {favorites: favoriteBusinessId}})
         .then((userFromDb) => {
             console.log('update favorites list ===>', userFromDb);
             res.send('business was added to favorites');
         })
+        .catch(error => console.log('######### error ########## ', error))    
+        return;
+    } else {
+        User.findByIdAndUpdate(userId, {$pull: {favorites: favoriteBusinessId}})
+        .then((userFromDb) => {
+            console.log('update favorites list ===>', userFromDb);
+            res.send('business was removed from favorites');
+        })
         .catch(error => console.log('######### error ########## ', error))
+    }
  });
 
 
