@@ -4,27 +4,30 @@ const Mongoose = require("mongoose");
 const User = require("../models/User.model");
 
 //TODO: complete this route handler
+//TODO: add session checker
 router.get("/profile", (req, res, next) => {
     console.log("Session => User ID ======>", req.session.userId);
     console.log("Session => User ID ======>", req.session.userType);
-    res.send("<h1>HELLO to your private page</h1>");
+    // res.send("<h1>HELLO to your private page</h1>");
+    res.render('profile/profile', {});
 } );
 
 //view business details
 router.get('/profile/business/:businessId', (req, res, next) => {
     //check if user already logged in
-    if (!req.session.userId) {
-        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
-        console.log("user not logged in");
-        // res.send("you have to be logged in to view this")
-        return;
-    }
+    // if (!req.session.userId) {
+    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+    //     console.log("user not logged in");
+    //     // res.send("you have to be logged in to view this")
+    //     return;
+    // }
     const businessId = req.params.businessId;
     //get the business to view.
     Business.findById(businessId)
         .then(function(businessFromDb) {
             if (!businessFromDb) {
                 res.render('profile/profile', {errorMessage: "business does not exist"});
+                console.log('business does not exist');
                 // res.send("business does not exist")
                 return;
             }

@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+<div class="container-box">
+        <ul id="business-listing">
+            <li>
+                <div>
+                    {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
+                    <h3>{{businessDetails.businessName}}</h3>
+                    <h4>{{businessDetails.region}}</h4>
+                    <h4 id="businessAddress">{{businessDetails.businessAddress}}</h4>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div id="map" style="height: 40%; width: 40%"></div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="/scripts/map.js"></script>
