@@ -2,17 +2,36 @@ const router = require("express").Router();
 const Business = require('../models/Business.model');
 const Mongoose = require("mongoose");
 const User = require("../models/User.model");
+const perPage = 20;
 
 //TODO: complete this route handler
 //TODO: add session checker
 router.get("/profile", (req, res, next) => {
-    console.log("Session => User ID ======>", req.session.userId);
-    console.log("Session => User ID ======>", req.session.userType);
-    // res.send("<h1>HELLO to your private page</h1>");
-    res.render('profile/profile', {});
+    // if (!req.session.userId) {
+    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+    //     console.log("user not logged in");
+    //     return;
+    // }
+    let page = 1;
+    let skipPage = 0;
+    if (req.query.page) {
+        page =  req.query.page;
+        skipPage = perPage*(page - 1);
+    }
+
+    Business.aggregate([{$skip: skipPage},{$limit: perPage},{$project: {businessName:1, region:1}}])
+        .then(function(dataFromDb) {
+            console.log(dataFromDb);
+            res.send(dataFromDb);
+        })
+        .catch(error => {
+            res.render('profile/profile', {errorMessage: `error loading businesses ${error}`});
+            console.log({errorMessage: `error loading businesses ${error}`});
+        })
 } );
 
 //view business details
+//TODO check for client session -> uncoment
 router.get('/profile/business/:businessId', (req, res, next) => {
     //check if user already logged in
     // if (!req.session.userId) {
@@ -90,7 +109,7 @@ router.get('/profile/favorites', (req, res, next) => {
         })
 });
 
-//adding a business to favorites
+//adding/removing a business to favorites
 router.post('/profile/favorites', (req, res, next) => {
     if (!req.session.userId) {
         res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
@@ -116,6 +135,11 @@ router.post('/profile/favorites', (req, res, next) => {
         .catch(error => console.log('######### error ########## ', error))
     }
  });
+
+//edit business information
+
+
+//edit personal information
 
 
 module.exports = router;
