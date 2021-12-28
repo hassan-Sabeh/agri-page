@@ -33,13 +33,14 @@ router.post('/login', (req,res, next) => {
             }  else {
                 //create user session
                 req.session.userId = userFromDb._id;
+                console.log("=======================>>>>>>>>>",req.session.userId);
                 req.session.userType = userFromDb.userType;
                 console.log("welcome to your profile");
                 res.redirect('/profile');
             } 
 
         })
-        .catch(error => console.log("######error###### ", error))
+        .catch(error => {console.log("######error###### ", error)})
         // .next()
 });
 

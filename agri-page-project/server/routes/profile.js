@@ -150,7 +150,8 @@ router.get('/profile/edit', (req, res, next) => {
     //     console.log("user not logged in");
     //     return;
     // }
-    User.findById({_id: req.ression.userId})
+    // console.log("=======================>>>>>>>>>",req.session.userId);
+    User.findById({_id: req.session.userId})
         .then(function(userFromDb) {
             if (req.session.userType === "farmer") {
                 Business.findById({_id: userFromDb.ownBusiness})
@@ -213,13 +214,13 @@ router.post('/profile/edit', (req, res, next) => {
             })
             .catch(error => {
                 console.log("error updating user information ==> ", error);
+                //error handling validation errors
+                
                 res.redirect('/profile/edit');
                 return;
             })
     }
 });
-
-//edit personal information
 
 
 module.exports = router;
