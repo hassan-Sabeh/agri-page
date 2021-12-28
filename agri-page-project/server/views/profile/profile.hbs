@@ -1,4 +1,52 @@
+{{!-- <link rel="stylesheet" href="/styles/profilebusiness.css"> --}}
 
+
+
+<div class="nav-bar">
+        <h1>Explore agricultural in the region</h1>
+</div>
+
+
+<div id="main-page">
+
+    <div class="left-box">
+          <p>Name</p>
+    		<img src="../images/farmer.png" class="profile" alt="Photo"/>
+
+    		<section> 
+    	      <h2>Favoris</h2>	
+        	</section>
+
+        	<section class="favority"> 
+        		<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque tempora facere culpa quod? Quo facilis, nam magnam cumque error quibusdam. Optio corporis accusantium debitis ipsum perferendis. Suscipit, ipsam distinctio! Qui.</p>
+        	</section>	
+
+        <label class="edit">
+          Edit Business:
+          <textarea id="descri" name="Description"></textarea>
+        </label>
+    </div>
+
+    <div class="container-box">
+        <ul id="business-listing">
+            {{#each businessList}}
+            <li>
+                <div>
+                    <img src="../images/tractor.png" class="tractor-image" alt="tractor"/>
+                    {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
+                    <h3>{{this.businessName}}</h3>
+                    <h4>{{this.region}}</h4>
+                </div>
+            </li>
+            {{/each }}
+        </ul>
+    </div>
+
+</div>
+
+
+
+{{!-- 
 <form action="/profile/business/61c4e17d3679e0d2c3c16628">
     <button>see your business here</button>
-</form>
+</form> --}}

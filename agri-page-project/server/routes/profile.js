@@ -18,15 +18,22 @@ router.get("/profile", (req, res, next) => {
         page =  req.query.page;
         skipPage = perPage*(page - 1);
     }
-
-    Business.aggregate([{$skip: skipPage},{$limit: perPage},{$project: {businessName:1, region:1}}])
+    // let valueMatch = new RegExp('OK');
+    let aggregatePipeline = [{$skip: skipPage},{$limit: perPage},{$project: {businessName:1, region:1}}]
+    //{$match: {region: {$regex: valueMatch}}
+    if (req.query.region) {
+        aggregatePipeline.unshift({$match: {region: req.query.region}});
+    }
+    Business.aggregate(aggregatePipeline)
         .then(function(dataFromDb) {
             console.log(dataFromDb);
+            // res.render('profile/profile', {businessList: dataFromDb});
             res.send(dataFromDb);
         })
         .catch(error => {
             res.render('profile/profile', {errorMessage: `error loading businesses ${error}`});
             console.log({errorMessage: `error loading businesses ${error}`});
+            return;
         })
 } );
 
@@ -136,8 +143,81 @@ router.post('/profile/favorites', (req, res, next) => {
     }
  });
 
-//edit business information
+//get edit information
+router.get('/profile/edit', (req, res, next) => {
+    // if (!req.session.userId) {
+    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+    //     console.log("user not logged in");
+    //     return;
+    // }
+    User.findById({_id: req.ression.userId})
+        .then(function(userFromDb) {
+            if (req.session.userType === "farmer") {
+                Business.findById({_id: userFromDb.ownBusiness})
+                    .then(function(ownBusinessFromDb) {
+                        allUserInfo = [ownBusinessFromDb, userFromDb]
+                        res.render('profile/edit', {allUserInfo: allUserInfo})
+                    })
+                    .catch(error => 
+                        {
+                        console.log("error getting edit info =====>", error)
+                        res.redirect('/profile');        
+                        return;
+                    }
+                        )
+                }else {
+                    res.render('profile/edit', {allUserInfo: userFromDb});
+                }  
+        })
+        .catch(error => {
+            console.log("error getting edit info =====>", error)
+            res.redirect('/profile');
+            return;
+        })
+});
 
+//post the new information to edit
+router.post('/profile/edit', (req, res, next) => {
+        // if (!req.session.userId) {
+    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+    //     console.log("user not logged in");
+    //     return;
+    // }
+    const {username, email} = req.body.userInfo;
+    if (req.session.userType === "farmer") {
+        const {businessId ,businessName, businessAddress, businessDescription} = req.body.businessInfo;
+        const updateUserPromise = User.findByIdAndUpdate({_id: req.session.userId}, {username, email}, {new: true});
+        const updateBusinessPromise = Business.findByIdAndUpdate(
+            {_id: businessId}, {
+                businessName,
+                businessAddress,
+                businessDescription
+            }, {new: true});
+        Promise.all([updateUserPromise, updateBusinessPromise])
+            .then(values => {
+                console.log('updated information ==>',values);
+                res.redirect('/profile/edit');
+            })
+            .catch(error => {
+                console.log("error updating information ==>", error);
+                //error handling, (validation errors)
+                
+                return;
+            })
+    
+    } else {
+        User.findByIdAndUpdate({_id: req.session.userId}, {username, email}, {new: true})
+            .then(userFromDb => {
+                console.log("success updating user from DB => ", userFromDb);
+                res.redirect('/profile/edit');
+            })
+            .catch(error => {
+                console.log("error updating user information ==> ", error);
+                res.redirect('/profile/edit');
+                return;
+            })
+    }
+});
 
 //edit personal information
 
