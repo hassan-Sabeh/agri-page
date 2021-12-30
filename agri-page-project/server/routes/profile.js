@@ -202,7 +202,14 @@ router.post('/profile/edit', (req, res, next) => {
             .catch(error => {
                 console.log("error updating information ==>", error);
                 //error handling, (validation errors)
-                
+                if (error instanceof Mongoose.Error.ValidationError) {
+                    //TODO: add error handler to render user friendly error to signup page
+                    res.status(500).render('profile/edit', {errorMessage: error})
+                } else if (error.code === 11000){
+                    res.status(500).render('profile/edit', {errorMessage: error})
+                } else {
+                    console.log("######## the error is here ##########", error);
+                }
                 return;
             })
     
@@ -215,8 +222,14 @@ router.post('/profile/edit', (req, res, next) => {
             .catch(error => {
                 console.log("error updating user information ==> ", error);
                 //error handling validation errors
-                
-                res.redirect('/profile/edit');
+                if (error instanceof Mongoose.Error.ValidationError) {
+                    //TODO: add error handler to render user friendly error to signup page
+                    res.status(500).render('profile/edit', {errorMessage: error})
+                } else if (error.code === 11000){
+                    res.status(500).render('profile/edit', {errorMessage: error})
+                } else {
+                    console.log("######## the error is here ##########", error);
+                }
                 return;
             })
     }
