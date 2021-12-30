@@ -1,19 +1,17 @@
 <link rel="stylesheet" href="/styles/login.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rancho&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
 
-
+<img id="background-plant" src="/images/green-plant.png" alt="background-plant">
 <div class="formulaire">
     <form class="form" method="POST" action="/login">
         <h1>Login</h1>
-            <label>
-            Email Adress:
+            <div id="input-fields">
             <input class="input email" type="email" placeholder="Email" id="input-email" name="email"/>
-        </label>
-            <label>
-            Password:
             <input class="input password" type="password" name="Password" placeholder="password" id="input-password"/>
-        </label>
-        
-         <input class="login" type="submit" value="Login"/>
+            <input class="login" type="submit" value="Login"/> 
+            </div>
 
     </form>
 </div>
