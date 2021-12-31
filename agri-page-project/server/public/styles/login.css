@@ -60,6 +60,17 @@ h1{
   }
 
 
+#login-button{
+    width: 50%;
+    padding: 2%;
+    background-color: rgba(130, 174, 140, 1);
+    border-radius: 15px;
+    border: none;
+    color: #064815;
+    font-size: 1.3em;
+}
+
+
 /* .login{
     font-size: 20px;
     font-family: roboto;
