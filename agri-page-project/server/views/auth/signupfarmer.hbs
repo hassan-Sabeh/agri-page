@@ -1,53 +1,20 @@
 <link rel="stylesheet" href="/styles/signupfarmer.css">
 
+
+<img id="background-plant" src="/images/green-plant.png" alt="background-plant">
 <div class="formulaire">
-<div id="form-elements">
-<div id="form-rectangle">
- <form class="form" method="POST" action="/signupfarmer">
-  <h1>Former Sign Up</h1>
-      <label>
-          Name:
-          <input type="text" name="Name"/>
-        </label>
-
-        <label>
-          Email Adress:
-          <input class="email" type="email" id="input-email" name="email"/>
-          
-        </label>
-
-        <label>
-          Password:
-          <input class="password" type="password" name="password" id="input-password"/>
-          
-        </label>
-
-        <label>
-          Password confirmation:
-          <input class="password" type="password" name="password" id="input-password"/>
-          
-      </label>
-
-      <label>
-          Businees Name:
-          <input type="text" name="Name"/>
-        </label>
-    
-        <label>
-          Business Adress:
-          <input type="adress"  name="adress"/>
-        </label>
-    
-        <label>
-          Description:
-          <textarea id="descri" name="Description"></textarea>
-        </label>
-  </div>
-
-    <input class="signup" type="submit" value="Sign Up">
+  <form class="form" method="POST" action="/signupfarmer">
+   <h1>Former Sign Up</h1>
+           <input type="text" name="Name" placeholder="Name"/>
+           <input class="email" type="email" id="input-email" name="email" placeholder="email"/>
+           <input class="password" type="password" name="password" id="input-password" placeholder="Password"/>
+           <input class="password" type="password" name="password" id="input-password" placeholder="Password confirmation"/>
+           <input type="text" name="Name" placeholder="Business Name"/>
+           <input type="adress"  name="adress" placeholder="Business Address"/>
+           <textarea id="descri" name="Description" placeholder="Business Descritpion"></textarea>
+     <input class="signup" type="submit" value="Sign Up">
+  </form>
  </div>
- </form>
-</div>
 
 
 
