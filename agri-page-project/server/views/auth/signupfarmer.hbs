@@ -1,18 +1,24 @@
 <link rel="stylesheet" href="/styles/signupfarmer.css">
-
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rancho&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
 
 <img id="background-plant" src="/images/green-plant.png" alt="background-plant">
 <div class="formulaire">
+  <h1>Farmer Sign Up</h1>
   <form class="form" method="POST" action="/signupfarmer">
-   <h1>Former Sign Up</h1>
+           <div id="personal-information">
            <input type="text" name="Name" placeholder="Name"/>
            <input class="email" type="email" id="input-email" name="email" placeholder="email"/>
            <input class="password" type="password" name="password" id="input-password" placeholder="Password"/>
            <input class="password" type="password" name="password" id="input-password" placeholder="Password confirmation"/>
-           <input type="text" name="Name" placeholder="Business Name"/>
+           <input id="signup-button" type="submit" value="Sign Up">
+           </div>
+           <div id="business-information">
+             <input type="text" name="Name" placeholder="Business Name"/>
            <input type="adress"  name="adress" placeholder="Business Address"/>
-           <textarea id="descri" name="Description" placeholder="Business Descritpion"></textarea>
-     <input class="signup" type="submit" value="Sign Up">
+           <textarea id="descri" name="Description" placeholder="Business Descritpion" maxlength="200"></textarea>
+           </div>
   </form>
  </div>
 

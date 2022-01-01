@@ -10,18 +10,96 @@ html, body{
 
 .formulaire{
     position: absolute;
-    top: 15%;
+    top: 10%;
     /* background-color: rgba(130, 174, 140, 0.7); */
-    width: 100%;
+    width: 90%;
     display: flex;
-    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: left;
     height: 60%;
+    margin-left: 3%;
     
 }
+
+h1{
+    margin-left: 3%;
+    font-family: 'Rancho', cursive;
+    font-size: 4em;
+    color: #064815;
+}
+
 
 .form{
     background-color: rgba(130, 174, 140, 0.3);
     height: 100%;
-    width: 30%;
+    width: 70%; /* make it 30%*/
+    /* width: 30%; */
     border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#personal-information{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 40%; /* make it 100%*/
+    /* width: 100% */
+}
+
+#business-information{
+    visibility: visible; /* make it hidden*/
+    /* visibility: hidden; */
+    width: 60%;
+}
+
+input{
+    padding: 1%;
+    /* margin: 10%; */
+    width: 70%;
+    /* height: 20%; */
+    border: 2px solid #064815;
+    border-radius: 15px;
+    background-color: rgba(130, 174, 140, 0.7);
+    color: #064815;
+}
+
+#personal-information > input{
+    margin-bottom: 2%;
+    margin-top: 2%;
+    margin-left: 5%;
+}
+
+#business-information > input{
+    margin-top: 2%;
+    margin-bottom: 5%;
+}
+
+textarea{
+    width: 70%;
+    padding: 1%;
+    border: 2px solid #064815;
+    border-radius: 15px;
+    background-color: rgba(130, 174, 140, 0.7);
+    color: #064815;
+    height: 40%;
+    resize: none;
+}
+
+::placeholder {
+    color: #064815;
+    font-size: 1em;
+  }
+
+#signup-button{
+    width: 30%;
+    padding: 1%;
+    background-color: rgba(130, 174, 140, 1);
+    border-radius: 15px;
+    border: none;
+    color: #064815;
+    font-size: 1em;
+    margin-left: 30%;
 }
