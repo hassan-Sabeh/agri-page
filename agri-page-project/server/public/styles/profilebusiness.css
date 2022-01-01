@@ -3,24 +3,41 @@ html, body{
     height: 100%;
 }
 
+#profile-page{
+    height: 100%;
+    display: flex;
+}
 
-.nav-bar{
-    height:10%;
-    font-family: Roboto;
-    background-color: #80A779;
-    color: #064815;
-    width: 100%;
-    left: 68px;
-    top: 12px;
+#side-bar{
+    width: 15%;
+    /* background-image: url("../images/long-plant.png"); */
+    background: linear-gradient(0deg, rgba(134, 174, 130, 0.6), rgba(134, 174, 130, 0.6)), url(../images/long-plant.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* background-color: ; */
+}
+
+#sidebar-container{
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
-} 
+}
+
+.profile-photo{
+    width: 60%;
+}
 
 
-
-#main-page{
+.tractor-image{
+    width: 10%;
+}
+/* #main-page{
     height:90%;
     display: flex;
-    /* justify-content: space-between; */
 }
 
 .container-box{
@@ -97,4 +114,4 @@ img{
     width: 117px;
     height: 120;
     top: 90px;
-}
+}  */

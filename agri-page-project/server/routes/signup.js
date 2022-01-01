@@ -4,14 +4,8 @@ router.get('/signuptransition', (req, res, next) => {
     res.render('auth/signuptransition');
 })
 
-router.get('/signupclient', (req, res, next) => {
-    res.render('auth/signupclient');
-})
-
-
-router.get('/signupfarmer', (req, res, next) => {
-    res.render('auth/signupfarmer');
-})
-
+router.get('/signup', (req, res, next) => {
+    res.render('auth/signup');
+});
 
 module.exports = router;
