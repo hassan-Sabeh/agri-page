@@ -59,14 +59,13 @@ const businessInfor = [
 
 
 
-
 router.get('/profile', (req, res, next) => {
-    res.render("profile");
-});
-
-router.get('/profilebusiness', (req, res, next) => {
-    res.render("profilebusiness", {businessInfo: businessInfor});
+    res.render("profile/profile", {businessInfo: businessInfor});
 });
 //{businessName: "hello"}
+
+router.get('/favorites', (req, res, next) => {
+    res.render('profile/favorites', {businessInfo: businessInfor});
+});
 
 module.exports = router;

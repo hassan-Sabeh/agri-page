@@ -1,0 +1,158 @@
+html, body{
+    margin: 0;
+    height: 100%;
+}
+
+#profile-page{
+    height: 100%;
+    display: flex;
+}
+
+#side-bar{
+    width: 15%;
+    /* background-image: url("../images/long-plant.png"); */
+    background: linear-gradient(0deg, rgba(134, 174, 130, 0.6), rgba(134, 174, 130, 0.6)), url(../images/long-plant.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    /* background-color: ; */
+}
+
+#sidebar-container{
+    position: absolute;
+    width: 15%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#sidebar-container > h1{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: white;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.profile-photo{
+    width: 60%;
+    margin-bottom: 20%;
+}
+
+#sidebar-container > h2{
+    margin-bottom: 20%;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 400;
+    border: 1px solid rgba(38, 40, 38, 0.35);
+    padding: 3%;
+    border-radius: 15px;
+    background-color: rgba(38, 40, 38, 0.35);
+    cursor: pointer;
+}
+
+#logout{
+    margin-top: 65%;
+}
+
+.main-page{
+    width:90%;
+}
+
+.main-page > h1{
+    width: 100%;
+    background-color: rgba(134, 174, 130, 1);
+    height: 15%;
+    padding-top: 2%;
+    padding-left: 2%;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 350;
+    color: #064815;
+    position:relative;
+}
+
+.container-box{
+    height: 80%;
+    width: 100%;
+    overflow: auto;
+    vertical-align: bottom;
+}
+
+.container-box::-webkit-scrollbar {
+    visibility: visible;
+    width: 20px;
+}
+
+#business-listing{
+    display: flex;
+    flex-wrap:  wrap;
+    justify-content: space-between;
+    height: 90%;
+    margin-top: 5%;
+}
+
+.tractor-image{
+    width: 30%;
+    margin-left: 5%;
+}
+
+
+#business-listing > li {
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 30%;
+    height: 40%;
+    cursor: pointer;
+    border: 1px solid rgba(38, 40, 38, 0.35);
+    list-style: none;
+    box-shadow: 5px 5px 5px rgba(130, 174, 140, 0.3);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+
+#business-card{
+    height: 100%;
+}
+
+.delete-img{
+    width: 8%;
+    margin-left: 50%;
+    margin-bottom: 15%;
+}
+
+#business-name {
+    margin-left: 5%;
+    font-weight: 400;
+}
+
+#business-region{
+    font-weight: 400;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.pagination{
+    display: inline-block;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 65%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid rgba(134, 174, 130, 1);
+  }
+  
+  .pagination a.active {
+    background-color: rgba(134, 174, 130, 1);
+    color: white;
+    border: 1px solid rgba(134, 174, 130, 1);
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}

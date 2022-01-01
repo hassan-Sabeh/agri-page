@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/styles/profilebusiness.css">
+<link rel="stylesheet" href="/styles/favorites.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -9,31 +9,22 @@
     		{{!-- <img src="../images/long-plant.png" class="long-plant" alt="long plant Photo"/> --}}
     	      <div id="sidebar-container">
                <h1>Name</h1>
-               <img src="../images/farmer.png" class="profile-photo" alt="Photo"/>
+               <img src="../../images/farmer.png" class="profile-photo" alt="Photo"/>
+               <h2><a>Explore</a></h2>
                <h2><a>Favorites</a></h2>
                <h2><a>Edit Profile</a></h2>
                <h2 id="logout"><a>Logout</a></h2>	  
               </div>
    </div>
    <div class="main-page">
-        <h1>Explore agricultural businesses in the region</h1>
-        <div id="filter-box">
-            <div class="dropdown">
-                <button class="dropbtn"><img src="../images/edit.png" class="edit-photo" alt="Photo"/></button>
-                <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-            </div>
-        </div>
-        <div id="filter-text">filter by region</div>
-</div>   
+        <h1>Listings that you liked</h1>  
         <div class="container-box">
          <ul id="business-listing">
             {{#each businessInfo}}
             <li>
                 <div id="business-card">
-                    <img src="../images/tractor.png" class="tractor-image" alt="tractor"/>
+                    <img src="../../images/tractor.png" class="tractor-image" alt="tractor"/>
+                    <img src="../../images/icons8-delete-64.png" class="delete-img" alt="delete">
                     {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
                     <h3 id="business-name">{{this.businessName}}</h3>
                     <h4 id="business-region">{{this.region}}</h4>
