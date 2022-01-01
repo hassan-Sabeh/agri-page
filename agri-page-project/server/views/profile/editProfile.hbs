@@ -1,0 +1,58 @@
+<link rel="stylesheet" href="/styles/editProfile.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rancho&family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+
+<div id="profile-page">
+   <div id="side-bar">
+    		{{!-- <img src="../images/long-plant.png" class="long-plant" alt="long plant Photo"/> --}}
+    	      <div id="sidebar-container">
+               <h1>Name</h1>
+               <img src="../../images/farmer.png" class="profile-photo" alt="Photo"/>
+               <h2><a>Explore</a></h2>
+               <h2><a>Favorites</a></h2>
+               <h2><a>Edit Profile</a></h2>
+               <h2 id="logout"><a>Logout</a></h2>	  
+              </div>
+   </div>
+   <div class="main-page">
+        <h1>Edit your infomation</h1>  
+        <div id="edit-info">
+        <div class="container-box">
+            <div id="personal-information">
+                <h2>Personal information</h2>
+                 <form class="personal-form" method="POST" action="/editProfile">
+                    <input type="text" name="Name" placeholder="Name"/>
+                    <input class="email" type="email" id="input-email" name="email" placeholder="email"/>
+                    <input class="save-changes" type="submit" value="Save changes">
+                  </form>  
+            </div>
+            <div id="business-information">
+                <h2>Business information</h2>
+                    <form class="business-form" method="POST" action="/editProfile">
+                        <input type="text" name="Name" placeholder="Business Name"/>
+                        <input type="adress"  name="adress" placeholder="Business Address"/>
+                        <textarea id="descri" name="Description" placeholder="Business Descritpion" maxlength="200"></textarea>
+                        <input id="save-changes" type="submit" value="Save changes">
+                    </form>
+            </div>
+    </div>
+    <div id="previous-information">
+        <div id="previous-personal">
+            <ul>
+                <li>Name:{{userName}}</li>
+                <li>Email:{{email}}</li>
+            </ul>
+        </div>
+        <div id="previous-business">
+            <ul>
+                <li>Business Name:{{businessName}}</li>
+                <li>Business Address:{{businessAddress}}</li>
+                <li>Business Description:{{businessDescription}}</li>
+            </ul>
+        </div>
+    </div>
+   </div> 
+   </div>
+   </div>

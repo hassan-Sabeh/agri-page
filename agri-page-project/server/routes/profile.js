@@ -68,4 +68,9 @@ router.get('/favorites', (req, res, next) => {
     res.render('profile/favorites', {businessInfo: businessInfor});
 });
 
+router.get('/editProfile', (req, res, next) => {
+    res.render('profile/editProfile', {businessInfo: businessInfor});
+});
+
+
 module.exports = router;
