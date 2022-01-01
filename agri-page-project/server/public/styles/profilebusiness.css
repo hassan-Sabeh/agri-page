@@ -57,10 +57,6 @@ html, body{
     margin-top: 85%;
 }
 
-.tractor-image{
-    width: 20%;
-}
-
 .main-page{
     width:90%;
 }
@@ -147,9 +143,10 @@ html, body{
 }
 
 .container-box{
-    height: 100%;
+    height: 80%;
     width: 100%;
     overflow: auto;
+    vertical-align: bottom;
 }
 
 .container-box::-webkit-scrollbar {
@@ -160,9 +157,65 @@ html, body{
 #business-listing{
     display: flex;
     flex-wrap:  wrap;
+    justify-content: space-between;
+    height: 90%;
+    margin-top: 5%;
 }
 
-#business-listing > li {
+.tractor-image{
     width: 30%;
-    cursor: pointer;
+    margin-left: 5%;
 }
+
+
+#business-listing > li {
+    margin-left: 3%;
+    margin-top: 3%;
+    width: 30%;
+    height: 40%;
+    cursor: pointer;
+    border: 1px solid rgba(38, 40, 38, 0.35);
+    list-style: none;
+    box-shadow: 5px 5px 5px rgba(130, 174, 140, 0.3);
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+
+#business-card{
+    height: 100%;
+}
+
+#business-name {
+    margin-left: 5%;
+    font-weight: 400;
+}
+
+#business-region{
+    font-weight: 400;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.pagination{
+    display: inline-block;
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 65%;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+    border: 1px solid rgba(134, 174, 130, 1);
+  }
+  
+  .pagination a.active {
+    background-color: rgba(134, 174, 130, 1);
+    color: white;
+    border: 1px solid rgba(134, 174, 130, 1);
+  }
+  
+  .pagination a:hover:not(.active) {background-color: #ddd;}

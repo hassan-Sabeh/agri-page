@@ -29,17 +29,27 @@
         <div id="filter-text">filter by region</div>
 </div>   
         <div class="container-box">
-        <ul id="business-listing">
+         <ul id="business-listing">
             {{#each businessInfo}}
             <li>
-                <div>
+                <div id="business-card">
                     <img src="../images/tractor.png" class="tractor-image" alt="tractor"/>
                     {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
-                    <h3>{{this.businessName}}</h3>
-                    <h4>{{this.region}}</h4>
+                    <h3 id="business-name">{{this.businessName}}</h3>
+                    <h4 id="business-region">{{this.region}}</h4>
                 </div>
             </li>
             {{/each }}
+            <div class="pagination">
+                <a href="#">&laquo;</a>
+                    <a href="#">1</a>
+                    <a href="#" class="active">2</a>
+                    <a href="#">3</a>
+                    <a href="#">4</a>
+                    <a href="#">5</a>
+                    <a href="#">6</a>
+                    <a href="#">&raquo;</a>
+            </div>
         </ul>
     </div>
    </div> 

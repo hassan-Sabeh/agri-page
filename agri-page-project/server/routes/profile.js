@@ -25,7 +25,38 @@ const businessInfor = [
         businessName: "agri business",
         region: "agri region"
     },
+    {
+        businessName: "agri business",
+        region: "agri region"
+    },
+    {
+        businessName: "agri business",
+        region: "agri region"
+    },
+    {
+        businessName: "agri business",
+        region: "agri region"
+    },
+    {
+        businessName: "agri business",
+        region: "agri region"
+    },
+    {
+        businessName: "agri business",
+        region: "agri region"
+    },{
+        businessName: "agri business",
+        region: "agri region"
+    },{
+        businessName: "agri business",
+        region: "agri region"
+    },
+    {
+        businessName: "agri business",
+        region: "agri region"
+    },
 ]
+
 
 
 
