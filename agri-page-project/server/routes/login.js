@@ -8,7 +8,7 @@ const { render } = require('../app');
 
 
 router.get('/login', (req, res, next) => {
-    res.render('auth/login');
+    res.render('auth/login', {errorMessage: ""});
 });
 
 

@@ -10,8 +10,8 @@
     	      <div id="sidebar-container">
                <h1>Name</h1>
                <img src="../../images/farmer.png" class="profile-photo" alt="Photo"/>
-               <h2><a>Favorites</a></h2>
-               <h2><a>Edit Profile</a></h2>
+               <h2 id="favorites"><a>Favorites</a></h2>
+               <h2 id="edit"><a>Edit Profile</a></h2>
                <h2 id="logout"><a>Logout</a></h2>	  
               </div>
    </div>
@@ -21,36 +21,35 @@
             <div class="dropdown">
                 <button class="dropbtn"><img src="../../images/edit.png" class="edit-photo" alt="Photo"/></button>
                 <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                {{#each data.regions}}
+                    <a href="/profile?region={{this}}">{{this}}</a>
+                {{/each}}
             </div>
         </div>
         <div id="filter-text">filter by region</div>
 </div>   
         <div class="container-box">
          <ul id="business-listing">
-            {{#each businessInfo}}
+            {{#each data.businessList}}
             <li>
                 <div id="business-card">
                     <img src="../../images/tractor.png" class="tractor-image" alt="tractor"/>
                     {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
                     <h3 id="business-name">{{this.businessName}}</h3>
                     <h4 id="business-region">{{this.region}}</h4>
+                    <h4 id="details"><a href="/profile/business/{{this._id}}">business details</a></h4>
                 </div>
             </li>
             {{/each }}
             <div class="pagination">
-                <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a href="#" class="active">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">&raquo;</a>
+                <a id="previous-page" href="#">&laquo;</a>
+                    <a id="next-page" href="#">&raquo;</a>
             </div>
         </ul>
     </div>
    </div> 
    </div>
+   <script>
+       var businessCount = "{{data.businessCount}}"
+   </script>
+   <script src="/scripts/profile.js"></script>

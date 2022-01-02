@@ -8,11 +8,15 @@
     <form class="form" method="POST" action="/login">
         <h1>Login</h1>
             <div id="input-fields">
-            <input class="input email" type="email" placeholder="Email" id="input-email" name="email"/>
-            <input class="input password" type="password" name="Password" placeholder="password" id="input-password"/>
+            <input class="input email" type="email" placeholder="Email" id="input-email" name="email" required/>
+            <input class="input password" type="password" name="password" placeholder="password" id="input-password" required/>
             <input id="login-button" type="submit" value="Login"/> 
             {{!-- <button class="login" type="submit" value="Login"></button> --}}
             </div>
 
     </form>
 </div>
+<script>
+    var errorMessage = "{{errorMessage}}"
+</script>
+<script src="/scripts/login.js"></script>

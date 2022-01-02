@@ -116,6 +116,8 @@ html, body{
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    height: 500%;
+    overflow: auto;
 }
 
 .dropdown-content a {
@@ -173,7 +175,6 @@ html, body{
     margin-top: 3%;
     width: 30%;
     height: 40%;
-    cursor: pointer;
     border: 1px solid rgba(38, 40, 38, 0.35);
     list-style: none;
     box-shadow: 5px 5px 5px rgba(130, 174, 140, 0.3);
@@ -194,6 +195,17 @@ html, body{
     font-weight: 400;
     margin-left: 5%;
     margin-top: 5%;
+}
+
+#details{
+    margin-left: 60%;
+    cursor: pointer;
+}
+
+#details > a{
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 100%;
 }
 
 .pagination{

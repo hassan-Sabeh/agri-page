@@ -4,14 +4,13 @@ const Mongoose = require("mongoose");
 const User = require("../models/User.model");
 const perPage = 20;
 
-//TODO: complete this route handler
-//TODO: add session checker
+//TOTO uncomment session verifier
 router.get("/profile", (req, res, next) => {
-    // if (!req.session.userId) {
-    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
-    //     console.log("user not logged in");
-    //     return;
-    // }
+    if (!req.session.userId) {
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+        console.log("user not logged in");
+        return;
+    }
     let page = 1;
     let skipPage = 0;
     if (req.query.page) {
@@ -26,9 +25,24 @@ router.get("/profile", (req, res, next) => {
     }
     Business.aggregate(aggregatePipeline)
         .then(function(dataFromDb) {
+            const listOfRegions = [];
             console.log(dataFromDb);
-            // res.render('profile/profile', {businessList: dataFromDb});
-            res.send(dataFromDb);
+            dataFromDb.forEach(el => {
+                if (!listOfRegions.includes(el.region)) {
+                    listOfRegions.push(el.region)
+                }
+            })
+            //getting total number of businesses for pagination on profile page
+            Business.count()
+                .then(function(countBusinesses) {
+                    const businessCount = Math.ceil(countBusinesses/perPage);
+                    console.log(businessCount)
+                    res.render('profile/profile', {data: {businessList: dataFromDb, regions: listOfRegions, businessCount: businessCount}});
+                })
+                .catch(error => {
+                    res.render('profile/profile', {errorMessage: `error loading count businesses ${error}`});
+                    console.log({errorMessage: `error loading count businesses ${error}`});
+                })
         })
         .catch(error => {
             res.render('profile/profile', {errorMessage: `error loading businesses ${error}`});
@@ -38,15 +52,14 @@ router.get("/profile", (req, res, next) => {
 } );
 
 //view business details
-//TODO check for client session -> uncoment
 router.get('/profile/business/:businessId', (req, res, next) => {
     //check if user already logged in
-    // if (!req.session.userId) {
-    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
-    //     console.log("user not logged in");
-    //     // res.send("you have to be logged in to view this")
-    //     return;
-    // }
+    if (!req.session.userId) {
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+        console.log("user not logged in");
+        // res.send("you have to be logged in to view this")
+        return;
+    }
     const businessId = req.params.businessId;
     //get the business to view.
     Business.findById(businessId)
@@ -73,7 +86,7 @@ router.get('/profile/business/:businessId', (req, res, next) => {
         });
 });
 
-//view favorite businesses
+//view favorites businesses
 router.get('/profile/favorites', (req, res, next) => {
     if (!req.session.userId) {
         res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
@@ -145,11 +158,11 @@ router.post('/profile/favorites', (req, res, next) => {
 
 //get edit information
 router.get('/profile/edit', (req, res, next) => {
-    // if (!req.session.userId) {
-    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
-    //     console.log("user not logged in");
-    //     return;
-    // }
+    if (!req.session.userId) {
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+        console.log("user not logged in");
+        return;
+    }
     // console.log("=======================>>>>>>>>>",req.session.userId);
     User.findById({_id: req.session.userId})
         .then(function(userFromDb) {
@@ -179,11 +192,11 @@ router.get('/profile/edit', (req, res, next) => {
 
 //post the new information to edit
 router.post('/profile/edit', (req, res, next) => {
-        // if (!req.session.userId) {
-    //     res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
-    //     console.log("user not logged in");
-    //     return;
-    // }
+    if (!req.session.userId) {
+        res.render('auth/login', {errorMessage: "you have to be logged in to view this page"});
+        console.log("user not logged in");
+        return;
+    }
     const {username, email} = req.body.userInfo;
     if (req.session.userType === "farmer") {
         const {businessId ,businessName, businessAddress, businessDescription} = req.body.businessInfo;
@@ -235,5 +248,9 @@ router.post('/profile/edit', (req, res, next) => {
     }
 });
 
+router.get('/profile/logout', (req, res, next) => {
+    req.session.destroy();
+    res.redirect('/login');
+});
 
 module.exports = router;
