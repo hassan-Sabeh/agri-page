@@ -104,7 +104,6 @@ html, body{
     margin-top: 3%;
     width: 30%;
     height: 40%;
-    cursor: pointer;
     border: 1px solid rgba(38, 40, 38, 0.35);
     list-style: none;
     box-shadow: 5px 5px 5px rgba(130, 174, 140, 0.3);
@@ -116,10 +115,15 @@ html, body{
     height: 100%;
 }
 
-.delete-img{
-    width: 8%;
-    margin-left: 50%;
-    margin-bottom: 15%;
+#delete-img{
+    margin-left: 80%;
+    cursor: pointer;
+    color: red;
+
+}
+
+#delete-button{
+    width: 100%;
 }
 
 #business-name {
@@ -155,4 +159,18 @@ html, body{
     border: 1px solid rgba(134, 174, 130, 1);
   }
   
-  .pagination a:hover:not(.active) {background-color: #ddd;}
+#details{
+    margin-left: 45%;
+    cursor: pointer;
+    margin-top: 5%;
+}
+
+#details > a{
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 100%;
+}
+
+#region-detail{
+    display: flex;
+}

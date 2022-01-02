@@ -10,9 +10,9 @@
     	      <div id="sidebar-container">
                <h1>Name</h1>
                <img src="../../images/farmer.png" class="profile-photo" alt="Photo"/>
-               <h2><a>Explore</a></h2>
-               <h2><a>Favorites</a></h2>
-               <h2><a>Edit Profile</a></h2>
+               <h2 id="explore"><a>Explore</a></h2>
+               <h2 id="favorites"><a>Favorites</a></h2>
+               <h2 id="edit"><a>Edit Profile</a></h2>
                <h2 id="logout"><a>Logout</a></h2>	  
               </div>
    </div>
@@ -20,28 +20,25 @@
         <h1>Listings that you liked</h1>  
         <div class="container-box">
          <ul id="business-listing">
-            {{#each businessInfo}}
+            {{#each favoritesList}}
             <li>
                 <div id="business-card">
+                    <form id="delete-img" method="POST" action="/profile/favorites?operation=delete">
+                        <input type="hidden" name="businessId" value="{{this._id}}"/>
+                        <a onclick="this.parentNode.submit()">remove</a> 
+                    </form>
                     <img src="../../images/tractor.png" class="tractor-image" alt="tractor"/>
-                    <img src="../../images/icons8-delete-64.png" class="delete-img" alt="delete">
                     {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
                     <h3 id="business-name">{{this.businessName}}</h3>
-                    <h4 id="business-region">{{this.region}}</h4>
+                    <div id="region-detail">
+                        <h4 id="business-region">{{this.region}}</h4>
+                        <h4 id="details"><a href="/profile/business/{{this._id}}">business details</a></h4>
+                    </div>
                 </div>
             </li>
             {{/each }}
-            <div class="pagination">
-                <a href="#">&laquo;</a>
-                    <a href="#">1</a>
-                    <a href="#" class="active">2</a>
-                    <a href="#">3</a>
-                    <a href="#">4</a>
-                    <a href="#">5</a>
-                    <a href="#">6</a>
-                    <a href="#">&raquo;</a>
-            </div>
         </ul>
     </div>
    </div> 
    </div>
+   <script src="/scripts/favorites.js"></script>

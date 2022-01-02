@@ -150,7 +150,7 @@ router.post('/profile/favorites', (req, res, next) => {
         User.findByIdAndUpdate(userId, {$pull: {favorites: favoriteBusinessId}})
         .then((userFromDb) => {
             console.log('update favorites list ===>', userFromDb);
-            res.send('business was removed from favorites');
+            res.redirect('/profile/favorites');
         })
         .catch(error => console.log('######### error ########## ', error))
     }

@@ -25,7 +25,8 @@ let searchParams = new URLSearchParams(paramsString);
 let currentPageNumber = parseInt(searchParams.get('page'));
 if (!currentPageNumber || currentPageNumber === 1 ){
     previousPageEl.href = ``;
-    nextPageEl.href = `/profile?page=${2}`;    
+    nextPageEl.href = `/profile?page=${2}`;
+    currentPageNumber = 1;    
 } else {
     previousPageEl.href = `/profile?page=${currentPageNumber - 1}`;
     nextPageEl.href = `/profile?page=${currentPageNumber + 1}`;
