@@ -5,19 +5,25 @@
 
 <img id="background-plant" src="/images/green-plant.png" alt="background-plant">
 <div class="formulaire">
-  <h1>Farmer Sign Up</h1>
+  <h1>{{data.userType}} Sign-Up</h1>
   <form class="form" method="POST" action="/signup">
            <div id="personal-information">
-           <input type="text" name="Name" placeholder="Name"/>
-           <input class="email" type="email" id="input-email" name="email" placeholder="email"/>
-           <input class="password" type="password" name="password" id="input-password" placeholder="Password"/>
-           <input class="password" type="password" name="password" id="input-password" placeholder="Password confirmation"/>
+           <input type="text" name="username" placeholder="Name" required/>
+           <input class="email" type="email" id="input-email" name="email" placeholder="email" required/>
+           <input class="password" type="password" name="password" id="input-password" placeholder="Password" required/>
+           <input class="password" type="password" name="passwordConfirmation" id="input-password" placeholder="Password confirmation" required/>
+           <input name='userType' type='hidden' value="{{data.userType}}">
            <input id="signup-button" type="submit" value="Sign Up">
            </div>
            <div id="business-information">
-             <input type="text" name="Name" placeholder="Business Name"/>
-           <input type="adress"  name="adress" placeholder="Business Address"/>
-           <textarea id="descri" name="Description" placeholder="Business Descritpion" maxlength="200"></textarea>
+             <input type="text" name="Name" placeholder="Business Name" required/>
+           <input type="adress"  name="adress" placeholder="Business Address" required/>
+           <textarea id="descri" name="Description" placeholder="Business Descritpion" maxlength="200" required></textarea>
            </div>
   </form>
  </div>
+ <script>
+   var userType = "{{data.userType}}"
+   var errorMessage = "{{data.errorMessage}}"
+ </script>
+ <script src="/scripts/signup.js"></script>

@@ -13,7 +13,11 @@ router.get('/signuptransition', (req, res, next) => {
 })
 
 router.get('/signup', (req, res, next) => {
-    res.render('auth/signup', {data: "SignUp Page"});
+    if (req.query.user === 'client'){
+        res.render('auth/signup', {data: {errorMessage: "", userType: "client"}});    
+        return;
+    }
+    res.render('auth/signup', {data: {errorMessage: "", userType: "farmer"}});
 });
 
 //TODO, refactor code, duplication for User.create...
@@ -21,10 +25,14 @@ router.post('/signup', (req, res, next) => {
     data = req.body;
     if (data.userType === "client"){
         if (!data.username || !data.userType || !data.email || !data.password) {
-            res.render('auth/signup', {errorMessage: "mandatory fields should not be empty"});
+            res.render('auth/signup', {data : {errorMessage: "mandatory fields should not be empty", userType: data.userType}});
             return;
         }        
         // hashing the password with bcryptjs
+        if (data.password !== data.passwordConfirmation) {
+            res.render('auth/signup', {data : {errorMessage: "password confirmation wrong", userType: data.userType}});
+            return;
+        }
         const hashPassword = bcryptjs.hashSync(data.password, salt);
         User.create(
             {
@@ -45,10 +53,10 @@ router.post('/signup', (req, res, next) => {
             //if handlers for error messages from the database.
             if (error instanceof Mongoose.Error.ValidationError) {
                 //TODO: add error handler to render user friendly error to signup page
-                res.status(500).render('auth/signup', {errorMessage: error});
+                res.status(500).render('auth/signup', {data :{errorMessage: error, userType: data.userType}});
                 return;
             } else if (error.code === 11000){
-                res.status(500).render('auth/signup', {errorMessage: 'Email already exists'});
+                res.status(500).render('auth/signup', {data: {errorMessage: 'Email already exists', userType: data.userType}});
                 return;
             } else {
                 console.log("######## the error is here ##########");
@@ -61,6 +69,10 @@ router.post('/signup', (req, res, next) => {
      ELSE => user is a farmer, create db session transaction for User.create and Business.create
     */
     // hashing the password with bcrypt
+    if (data.password !== data.passwordConfirmation) {
+        res.render('auth/signup', {data: {errorMessage: "password confirmation wrong", userType: data.userType}});
+        return;
+    }
     const hashPassword = bcryptjs.hashSync(data.password, salt);
     
     async function registerFarmer(){
@@ -107,9 +119,9 @@ router.post('/signup', (req, res, next) => {
         } catch (error) {
             if (error instanceof Mongoose.Error.ValidationError) {
                 //TODO: add error handler to render user friendly error to signup page
-                res.status(500).render('auth/signup', {errorMessage: error})
+                res.status(500).render('auth/signup', {data :{errorMessage: error, userType: data.userType}})
             } else if (error.code === 11000){
-                res.status(500).render('auth/signup', {errorMessage: error})
+                res.status(500).render('auth/signup', {data :{errorMessage: error, userType: data.userType}})
             } else {
                 console.log("######## the error is here ##########", error);
                 next(error);
