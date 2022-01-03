@@ -30,7 +30,7 @@ for signup_request in range(0,100):
         "businessDescription": "bla bla bla",
         "region": random_address['state']
     }
-    response = requests.post('http://localhost:5555/signup', data=payload)
+    response = requests.post('https://agripage.herokuapp.com/signup', data=payload)
     if response.status_code != 200:
         print(response.content)
     print(response.status_code)
