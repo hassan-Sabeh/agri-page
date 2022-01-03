@@ -18,6 +18,10 @@
               </div>
    </div>
    <div class="main-page">
+       <form method="POST" action="/profile/favorites?operation=add">
+            <input type="hidden" name="businessId" value="{{businessDetails._id}}">
+            <button id="add-favorites" type="submit">Add to Favorites</button>
+       </form>
        <div class="container-box">
         <ul id="business-listing">
             <div id="business-image">
@@ -25,7 +29,6 @@
             </div>
             <li>
                 <div id="business-information">
-                    {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
                     <h2 id="business-name">{{businessDetails.businessName}}</h2>
                     <h4>Description: {{businessDetails.businessDescription}}</h4>
                     <h4>Region: {{businessDetails.region}}</h4>
@@ -44,3 +47,4 @@
         var businessAddress = "{{businessDetails.businessAddress}}"
     </script>
   <script src="/scripts/map.js"></script>
+  <script src="/scripts/businessDetails.js"></script>

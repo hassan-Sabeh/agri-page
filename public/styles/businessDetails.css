@@ -118,3 +118,11 @@ html, body{
     visibility: visible;
     width: 20px;
 }
+
+#add-favorites{
+    margin-left: 80%;
+    margin-top: 2%;
+    cursor: pointer;
+    background-color: rgba(134, 174, 130, 1);
+    padding: 0.5%;
+}

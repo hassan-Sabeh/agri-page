@@ -1,7 +1,7 @@
 from random_address import real_random_address
 import requests
 import names
-MAX_ACCOUNTS = 10
+MAX_ACCOUNTS = 90
 URL_DEV = "http://localhost:5555/signup"
 URL_PROD = 'https://agripage.herokuapp.com/signup'
 
@@ -33,7 +33,7 @@ for signup_request in range(0,MAX_ACCOUNTS):
         "businessDescription": "bla bla bla",
         "region": random_address['state']
     }
-    response = requests.post(URL_DEV, data=payload)
+    response = requests.post(URL_PROD, data=payload)
     if response.status_code != 200:
         print(response.content)
     print(response.status_code)

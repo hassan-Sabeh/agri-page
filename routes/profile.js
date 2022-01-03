@@ -142,7 +142,8 @@ router.post('/profile/favorites', (req, res, next) => {
         User.findByIdAndUpdate(userId, {$push: {favorites: favoriteBusinessId}})
         .then((userFromDb) => {
             console.log('update favorites list ===>', userFromDb);
-            res.send('business was added to favorites');
+            res.status(204).send();
+            return;
         })
         .catch(error => console.log('######### error ########## ', error))    
         return;
