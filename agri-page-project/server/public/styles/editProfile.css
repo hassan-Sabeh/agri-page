@@ -147,12 +147,12 @@ textarea{
 
 #previous-personal > ul{
     list-style: none;
-    margin-top: 50%;
+    margin-top: 10%;
 }
 
 #previous-business > ul{
     list-style: none;
-    margin-top: 80%;
+    margin-top: 50%;
 }
 
 #previous-personal > ul > li{

@@ -169,8 +169,8 @@ router.get('/profile/edit', (req, res, next) => {
             if (req.session.userType === "farmer") {
                 Business.findById({_id: userFromDb.ownBusiness})
                     .then(function(ownBusinessFromDb) {
-                        allUserInfo = [ownBusinessFromDb, userFromDb]
-                        res.render('profile/edit', {allUserInfo: allUserInfo})
+                        req.session.ownBusinessId = ownBusinessFromDb._id;
+                        res.render('profile/edit', {data:{businessInfo: ownBusinessFromDb ,userInfo: userFromDb}})
                     })
                     .catch(error => 
                         {
@@ -180,7 +180,7 @@ router.get('/profile/edit', (req, res, next) => {
                     }
                         )
                 }else {
-                    res.render('profile/edit', {allUserInfo: userFromDb});
+                    res.render('profile/edit', {userInfo: userFromDb});
                 }  
         })
         .catch(error => {
@@ -197,12 +197,12 @@ router.post('/profile/edit', (req, res, next) => {
         console.log("user not logged in");
         return;
     }
-    const {username, email} = req.body.userInfo;
+    const {username, email} = req.body;
     if (req.session.userType === "farmer") {
-        const {businessId ,businessName, businessAddress, businessDescription} = req.body.businessInfo;
+        const { ignorUserName, ignorEmail, businessName, businessAddress, businessDescription} = req.body;
         const updateUserPromise = User.findByIdAndUpdate({_id: req.session.userId}, {username, email}, {new: true});
         const updateBusinessPromise = Business.findByIdAndUpdate(
-            {_id: businessId}, {
+            {_id: req.session.ownBusinessId}, {
                 businessName,
                 businessAddress,
                 businessDescription

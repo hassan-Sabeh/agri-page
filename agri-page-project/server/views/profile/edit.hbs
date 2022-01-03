@@ -10,9 +10,9 @@
     	      <div id="sidebar-container">
                <h1>Name</h1>
                <img src="../../images/farmer.png" class="profile-photo" alt="Photo"/>
-               <h2><a>Explore</a></h2>
-               <h2><a>Favorites</a></h2>
-               <h2><a>Edit Profile</a></h2>
+               <h2 id="explore"><a>Explore</a></h2>
+               <h2 id="favorites"><a>Favorites</a></h2>
+               <h2 id="edit"><a>Edit Profile</a></h2>
                <h2 id="logout"><a>Logout</a></h2>	  
               </div>
    </div>
@@ -22,18 +22,18 @@
         <div class="container-box">
             <div id="personal-information">
                 <h2>Personal information</h2>
-                 <form class="personal-form" method="POST" action="/editProfile">
-                    <input type="text" name="Name" placeholder="Name"/>
-                    <input class="email" type="email" id="input-email" name="email" placeholder="email"/>
+                 <form class="personal-form" method="POST" action="/profile/edit">
+                    <input type="text" name="username" placeholder="Name" value="{{data.userInfo.username}}"/>
+                    <input class="email" type="email" id="input-email" name="email" placeholder="email" value="{{data.userInfo.email}}"/>
                     <input class="save-changes" type="submit" value="Save changes">
                   </form>  
             </div>
             <div id="business-information">
                 <h2>Business information</h2>
-                    <form class="business-form" method="POST" action="/editProfile">
-                        <input type="text" name="Name" placeholder="Business Name"/>
-                        <input type="adress"  name="adress" placeholder="Business Address"/>
-                        <textarea id="descri" name="Description" placeholder="Business Descritpion" maxlength="200"></textarea>
+                    <form class="business-form" method="POST" action="/profile/edit">
+                        <input type="text" name="businessName" placeholder="Business Name" value="{{data.businessInfo.businessName}}"/>
+                        <input type="adress"  name="businessAddress" placeholder="Business Address" value="{{data.businessInfo.businessAddress}}"/>
+                        <textarea id="descri" name="businessDescription" placeholder="Business Descritpion" maxlength="200">{{data.businessInfo.businessDescription}}</textarea>
                         <input id="save-changes" type="submit" value="Save changes">
                     </form>
             </div>
@@ -41,18 +41,19 @@
     <div id="previous-information">
         <div id="previous-personal">
             <ul>
-                <li>Name:{{userName}}</li>
-                <li>Email:{{email}}</li>
+                <li>Name:  {{data.userInfo.username}}</li>
+                <li>Email: {{data.userInfo.email}}</li>
             </ul>
         </div>
         <div id="previous-business">
             <ul>
-                <li>Business Name:{{businessName}}</li>
-                <li>Business Address:{{businessAddress}}</li>
-                <li>Business Description:{{businessDescription}}</li>
+                <li>Business Name: {{data.businessInfo.businessName}}</li>
+                <li>Business Address: {{data.businessInfo.businessAddress}}</li>
+                <li>Business Description:  <br>{{data.businessInfo.businessDescription}}</li>
             </ul>
         </div>
     </div>
    </div> 
    </div>
    </div>
+   <script src="/scripts/edit.js"></script>
