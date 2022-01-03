@@ -23,7 +23,9 @@
             <div id="personal-information">
                 <h2>Personal information</h2>
                  <form class="personal-form" method="POST" action="/profile/edit">
+                    <label for="username">Username</label>
                     <input type="text" name="username" placeholder="Name" value="{{data.userInfo.username}}"/>
+                    <label for="email">Email address</label>
                     <input class="email" type="email" id="input-email" name="email" placeholder="email" value="{{data.userInfo.email}}"/>
                     <input class="save-changes" type="submit" value="Save changes">
                   </form>  
@@ -31,27 +33,15 @@
             <div id="business-information">
                 <h2>Business information</h2>
                     <form class="business-form" method="POST" action="/profile/edit">
+                        <label for="businessName">Business name</label>
                         <input type="text" name="businessName" placeholder="Business Name" value="{{data.businessInfo.businessName}}"/>
+                        <label for="businessAddress">Business address</label>
                         <input type="adress"  name="businessAddress" placeholder="Business Address" value="{{data.businessInfo.businessAddress}}"/>
+                        <label for="businessDescription">Description</label>
                         <textarea id="descri" name="businessDescription" placeholder="Business Descritpion" maxlength="200">{{data.businessInfo.businessDescription}}</textarea>
                         <input id="save-changes" type="submit" value="Save changes">
                     </form>
             </div>
-    </div>
-    <div id="previous-information">
-        <div id="previous-personal">
-            <ul>
-                <li>Name:  {{data.userInfo.username}}</li>
-                <li>Email: {{data.userInfo.email}}</li>
-            </ul>
-        </div>
-        <div id="previous-business">
-            <ul>
-                <li>Business Name: {{data.businessInfo.businessName}}</li>
-                <li>Business Address: {{data.businessInfo.businessAddress}}</li>
-                <li>Business Description:  <br>{{data.businessInfo.businessDescription}}</li>
-            </ul>
-        </div>
     </div>
    </div> 
    </div>

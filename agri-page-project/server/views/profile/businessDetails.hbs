@@ -1,21 +1,47 @@
+<link rel="stylesheet" href="/styles/businessDetails.css">
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
    crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
    crossorigin=""></script>
-<div class="container-box">
+
+<div id="profile-page">
+   <div id="side-bar">
+    		{{!-- <img src="../images/long-plant.png" class="long-plant" alt="long plant Photo"/> --}}
+    	      <div id="sidebar-container">
+               <h1>Name</h1>
+               <img src="../../images/farmer.png" class="profile-photo" alt="Photo"/>
+               <h2 id="explore"><a>Explore</a></h2>
+               <h2 id="favorites"><a>Favorites</a></h2>
+               <h2 id="edit"><a>Edit Profile</a></h2>
+               <h2 id="logout"><a>Logout</a></h2>	  
+              </div>
+   </div>
+   <div class="main-page">
+       <div class="container-box">
         <ul id="business-listing">
+            <div id="business-image">
+                <img id="tractor" src="../../images/tractor.png" alt="tractor">
+            </div>
             <li>
-                <div>
+                <div id="business-information">
                     {{!-- <h3>{{businessInfo.businessName}}</h3> --}}
-                    <h3>{{businessDetails.businessName}}</h3>
-                    <h4>{{businessDetails.region}}</h4>
-                    <h4 id="businessAddress">{{businessDetails.businessAddress}}</h4>
+                    <h2 id="business-name">{{businessDetails.businessName}}</h2>
+                    <h4>Description: {{businessDetails.businessDescription}}</h4>
+                    <h4>Region: {{businessDetails.region}}</h4>
+                    <h4 id="businessAddress">Address: {{businessDetails.businessAddress}}</h4>
                 </div>
             </li>
         </ul>
+     <div id="map" style="height: 90%; width: 40%"></div>   
     </div>
-    <div id="map" style="height: 40%; width: 40%"></div>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-<script src="/scripts/map.js"></script>
+   
+   </div>
+   </div>
+   <script src="/scripts/edit.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var businessAddress = "{{businessDetails.businessAddress}}"
+    </script>
+  <script src="/scripts/map.js"></script>

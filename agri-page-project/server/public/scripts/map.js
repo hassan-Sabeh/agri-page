@@ -1,7 +1,4 @@
 
-
-const businessAddress = document.querySelector('#businessAddress').textContent;
-
 console.log(businessAddress);
 
 axios.get(`https://nominatim.openstreetmap.org/search?q=${businessAddress}&format=json`)

@@ -75,7 +75,7 @@ html, body{
 
 .container-box{
     height: 80%;
-    width: 70%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -99,8 +99,8 @@ html, body{
 }
 
 #business-information{
-    margin-top: 5%;
-    height: 70%;
+    margin-top: 2%;
+    height: 80%;
     width: 50%;
     display: flex;
     flex-direction: column;
@@ -114,51 +114,25 @@ html, body{
 }
 
 input{
-    margin-top: 5%;
-    width: 60%;
+    margin-bottom: 2%;
+    width: 40%;
 }
 
 .business-form{
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding: 3%;
 }
 
 textarea{
-    width: 100%;
-    height: 60%;
-    margin-top: 5%;
+    width: 60%;
+    height: 90%;
     resize: none;
+    margin-bottom: 2%;
 }
 
 #edit-info{
     display: flex;
     width: 100%;
     height: 100%;
-}
-
-#previous-information{
-    list-style: none;
-    font-family: 'Roboto', sans-serif;
-    color: #064815;
-    margin-right: 30%;
-}
-
-#previous-personal > ul{
-    list-style: none;
-    margin-top: 10%;
-}
-
-#previous-business > ul{
-    list-style: none;
-    margin-top: 50%;
-}
-
-#previous-personal > ul > li{
-    margin-top: 10%;
-}
-
-#previous-business > ul > li{
-    margin-top: 10%;
 }
