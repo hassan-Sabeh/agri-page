@@ -23,13 +23,15 @@ router.get('/signup', (req, res, next) => {
 //TODO, refactor code, duplication for User.create...
 router.post('/signup', (req, res, next) => {
     data = req.body;
+    console.log(req.body);
     if (data.userType === "client"){
         if (!data.username || !data.userType || !data.email || !data.password) {
             res.render('auth/signup', {data : {errorMessage: "mandatory fields should not be empty", userType: data.userType}});
             return;
         }        
         // hashing the password with bcryptjs
-        if (data.password !== data.passwordConfirmation) {
+        if (data.password !== data.passwordConfirmation || !data.passwordConfirmation) {
+            console.log("password confirmation wrong or missing");
             res.render('auth/signup', {data : {errorMessage: "password confirmation wrong", userType: data.userType}});
             return;
         }
